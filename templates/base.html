@@ -2,6 +2,7 @@
 {% url 'home' as home_url %}
 {% url 'features' as features_url %}
 {% url 'menu' as menu_url %}
+{% url 'bundles' as bundles_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -35,6 +36,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link {% if request.path == menu_url %}active{% endif %}" href="{% url 'menu' %}">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == bundles_url %}active{% endif %}" href="{% url 'bundles' %}">Bundles</a>
               </li>
             </ul>
           </div>
