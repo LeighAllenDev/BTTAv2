@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'features',
     'menu',
+    'bundles',
 ]
 
 MIDDLEWARE = [
