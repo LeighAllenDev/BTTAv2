@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<style>
+    .menu-container {
+        margin: 20px;
+    }
+    .category-name {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+    .menu-item {
+        margin-left: 20px;
+    }
+    .option {
+        margin-left: 40px;
+    }
+</style>
 <section id="refreshments-hero">
     <div class="cover-text">
         <h2>Back to the Refreshments</h2>
@@ -16,174 +30,23 @@
     </div>
 </section>
 <section id="pricing">
-    <div class="intro">
-        <div>
-            <h3 class="subtitle">Food</h3>
-            <hr>
-            <div style="overflow-x:auto">
-            <table class="table table-reponsive">
-                <thead><h4>Light Bytes</h4></thead>
-                <tr>
-                <th>Item</th>
-                <th>Description</th>
-                <th>Prices</th>
-                </tr>
-                <tr>
-                    <td>Fries</td>
-                    <td>Freshly prepared and air-fried<br>Option of Cheese on top</td>
-                    <td>Regular: <br>£1.99<br>Large: <br>£3.99</td>
-                </tr>
-                <tr>
-                    <td>Curly Fries</td>
-                    <td>Freshly cooked in house</td>
-                    <td>Regular: <br>£2.50<br>Large: <br>£4.50</td>
-                </tr>
-                <tr>
-                    <td>Loaded Fries</td>
-                    <td>Choose from our selection of toppings including:<br>
-                    <ul>
-                        <li>Cheese/Cheeze</li>
-                        <li>Backon Pieces</li>
-                        <li>Crispy Onions</li>
-                        <li>Jalapenos</li>
-                        <li>Meat Balls</li>
-                    </ul>
-                    All served with a sprinkling of Parsley and Spring Onions</td>
-                    <td>Pick 2:<br>£5<br>Pick 4:<br>£6.50</td>
-                </tr>
-                <tr>
-                    <td>Garlic Bread</td>
-                    <td>Flatbread with cheese and garlic butter</td>
-                    <td>£3.99</td>
-                </tr>
-                <tr>
-                    <td>Garlic Mushrooms</td>
-                    <td>Breaded fried garlic mushrooms</td>
-                    <td>£3.99</td>
-                </tr>
-            </table>
-            </div>
-            <hr>
-        <div style="overflow-x:auto">
-            <table class="table table-reponsive">
-                <thead><h4>Mega-Bytes</h4></thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Description</th>
-                    <th>Prices</th>
-                </tr>
-                <tr>
-                    <td>Nachos</td>
-                    <td>Served with cheese, salsa, guacamoli and jalapenos. Perfect for sharing</td>
-                    <td>£7.99</td>
-                </tr>
-                <tr>
-                    <td>Nuggets</td>
-                    <td>Served with your choice of fries or curly fries</td>
-                    <td>£8.99</td>
-                </tr>
-                <tr>
-                    <td>Buffalo Wings</td>
-                    <td>Served with Hot Sauce or Mild buffalo sauce and fries</td>
-                    <td>£8.99</td>
-                </tr>
-                <tr>
-                    <td>Cheese Burger</td>
-                    <td>Your Choice of Beef or Beyond Meat plantbased patty, served with either Fries or Curly Fries</td>
-                    <td>£9.99</td>
-                </tr>
-                <tr>
-                    <td>Chicken Burger</td>
-                    <td>Served with Mayo and Salad, which fries on the side. Vegan option available</td>
-                    <td>£9.99</td>
-                </tr>
-                <tr>
-                    <td>Hot Dog</td>
-                    <td>Loaded with Ketchup, Yellow Mustard, crispy onions and diced gerkins. Served with a choice of Fries or Curly Fries</td>
-                    <td>£10.99</td>
-                </tr>
-                <tr>
-                    <td>Pizza</td>
-                    <td>Slice of Magareta or Peporoni Pizza served with fries</td>
-                    <td>£8.99</td>
-                </tr>
-            </table>
-        </div>
-        </div>
-        <div>
-            <div>
-                <div>
-                    <h3 class="subtitle">Drinks</h3>
-                    <hr>
-                    <div style="overflow-x:auto">
-                    <table class="table table-reponsive">
-                        <thead><h4>Hot Drinks</h4></thead>
-                        <tr>
-                            <th>Drink</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                        </tr>
-                        <tr>
-                            <td>Espresso</td>
-                            <td>Ground Coffee served as single or double shot</td>
-                            <td>Single: £3<br> Double: £4</td>
-                        </tr>
-                        <tr>
-                            <td>Latte</td>
-                            <td>Choice of Caramel, Vanilla, Regular or Pumkin Spice<br>Dairy Free Milk alternatives available</td>
-                            <td>Regular: £4.50<br>Large: £5.50</td>
-                        </tr>
-                        <tr>
-                            <td>Cappuccino</td>
-                            <td>Dairy free milk alternatives available</td>
-                            <td>Regular: £3.99<br>Large: £5</td>
-                        </tr>
-                        <tr>
-                            <td>Tea</td>
-                            <td>Choice of Red, Green or Classic tea</td>
-                            <td>Regular: £3.50<br>Large: £4.50</td>
-                        </tr>
-                    </table>
-                </div>
-                    <hr>
-                    <div style="overflow-x:auto">
-                    <table class="table table-reponsive">
-                        <thead><h4>Cold Drinks</h4></thead>
-                        <tr>
-                            <th>Drink</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                        </tr>
-                        <tr>
-                            <td>Iced Coffee</td>
-                            <td>Our finest coffee, on ice</td>
-                            <td>£4</td>
-                        </tr>
-                        <tr>
-                            <td>Iced tea</td>
-                            <td>Fruity iced tea</td>
-                            <td>£3.50</td>
-                        </tr>
-                        <tr>
-                            <td>Coca Cola</td>
-                            <td>330ml can choice of classic, diet or Zero</td>
-                            <td>£2</td>
-                        </tr>
-                        <tr>
-                            <td>Sprite</td>
-                            <td>Fizzy lemon and lime soft drink in a 330ml can</td>
-                            <td>£2</td>
-                        </tr>
-                        <tr>
-                            <td>Fanta</td>
-                            <td>Fruit twist, orange or lemon flavour 330ml can</td>
-                            <td>£2</td>
-                        </tr>
-                    </table>
-                </div>
-                </div>
-            </div>
-        </div>
+    <div class="menu-container">
+        <h1>Menu Overview</h1>
+        {% for category in categories %}
+            <div class="category-name">{{ category.name }}</div>
+            {% for item in category.menuitems.all %}
+                <div class="menu-item">{{ item.name }}</div>
+                {% for option in item.options.all %}
+                    <div class="option">{{ option.size }} - £{{ option.price }}</div>
+                {% empty %}
+                    <div class="option">No options available</div>
+                {% endfor %}
+            {% empty %}
+                <div>No menu items available</div>
+            {% endfor %}
+        {% empty %}
+            <div>No categories available</div>
+        {% endfor %}
     </div>
 
 </section>
