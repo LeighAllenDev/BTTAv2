@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-leighallendev-bttav2-bdc7skp6o0o.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = ['8000-leighallendev-bttav2-nl1ignjnd86.ws-eu108.gitpod.io']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'features',
     'menu',
     'bundles',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -122,9 +123,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-gb'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT'
 
 USE_I18N = True
 

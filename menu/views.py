@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from .models import Category
 
-# Create your views here.
 def menu(request):
-    template_name = "menu/menu.html"
-    return render(request, template_name)
+    categories = Category.objects.prefetch_related('menuitems__options').all()
+    categories = Category.objects.exclude(name='Default Category')
+    return render(request, 'menu/menu.html', {'categories': categories})
