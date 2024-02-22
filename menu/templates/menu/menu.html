@@ -1,21 +1,21 @@
 {% extends 'base.html' %} {% block content %}
 <style>
-    table {
+  table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-}
+  }
 
-th, td {
+  th,
+  td {
     text-align: left;
     padding: 8px;
     border-bottom: 1px solid #ddd;
-}
+  }
 
-.category-name {
+  .category-name {
     margin-top: 30px;
-}
-
+  }
 </style>
 <section id="refreshments-hero">
   <div class="cover-text">
@@ -38,52 +38,42 @@ th, td {
 <section id="pricing">
   <div class="menu-container">
     <h3>Menu Overview</h3>
+    {% for category in categories %}
+    <h2>{{ category.name }}</h2>
     <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for category in categories %}
-                <!-- Optional: Category as a header row -->
-                <tr class="category-header">
-                    <th colspan="3">{{ category.name }}</th>
-                </tr>
-                {% for item in category.menuitems.all %}
-                    <!-- Assuming each item might have multiple options/sizes -->
-                    {% for option in item.options.all %}
-                        <tr>
-                            <!-- Show item name and description only on the first option -->
-                            {% if forloop.first %}
-                                <td rowspan="{{ item.options.all.count }}">{{ item.name }}</td>
-                                <td rowspan="{{ item.options.all.count }}">{{ item.description|safe }}</td>
-                            {% endif %}
-                            <td>£{{ option.price }} ({{ option.size }})</td>
-                        </tr>
-                    {% empty %}
-                        <!-- If there are no options, just show the item without price/size -->
-                        <tr>
-                            <td>{{ item.name }}</td>
-                            <td>{{ item.description }}</td>
-                            <td>N/A</td>
-                        </tr>
-                    {% endfor %}
-                {% empty %}
-                    <tr>
-                        <td colspan="3">No menu items available</td>
-                    </tr>
-                {% endfor %}
-            {% empty %}
-                <tr>
-                    <td colspan="3">No categories available</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in category.menuitems.all %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.description|default:"N/A"|safe }}</td>
+          <td>
+            {% if item.options.all.count > 1 %}
+              {% for option in item.options.all %}
+                {{ option.size }} £{{ option.price }}<br>
+              {% endfor %}
+            {% else %}
+              £{{ item.options.all.first.price }}
+            {% endif %}
+          </td>
+          
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="3">No menu items available</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-    
+    {% empty %}
+    <p>No categories available</p>
+    {% endfor %}
   </div>
 </section>
 
