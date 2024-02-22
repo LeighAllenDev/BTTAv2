@@ -1,15 +1,65 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    margin-top: 70px;
+    background-color: slategray;
+}
+
+.logo {
+    width: 10%;
+    position: relative;
+    display: flex;
+}
+
+.navbar-nav {
+    right: 0;
+}
+
+h1, h2 {
+    letter-spacing: 2px;
+    color: darkorange;
+    line-height: 1.5rem;
+}
+
+h1 {
+    padding: 15px auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    padding: auto;
 }
 
 th, td {
     text-align: center;
     padding: 8px;
     border-bottom: 1px solid #ddd;
+    color: #ddd;
 }
 
 .category-name {
     margin-top: 30px;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+#social-networks {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
 }

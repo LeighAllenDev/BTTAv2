@@ -1,22 +1,5 @@
-{% extends 'base.html' %} {% block content %}
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-
-  th,
-  td {
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .category-name {
-    margin-top: 30px;
-  }
-</style>
+{% extends 'base.html' %} 
+{% block content %}
 <section id="refreshments-hero">
   <div class="cover-text">
     <h2>Back to the Refreshments</h2>
@@ -40,7 +23,8 @@
     <h3>Menu Overview</h3>
     {% for category in categories %}
     <h2>{{ category.name }}</h2>
-    <table>
+    <div class="col-8">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Name</th>
@@ -71,6 +55,7 @@
         {% endfor %}
       </tbody>
     </table>
+  </div>
     {% empty %}
     <p>No categories available</p>
     {% endfor %}
