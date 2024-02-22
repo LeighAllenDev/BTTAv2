@@ -59,7 +59,7 @@ th, td {
                             <!-- Show item name and description only on the first option -->
                             {% if forloop.first %}
                                 <td rowspan="{{ item.options.all.count }}">{{ item.name }}</td>
-                                <td rowspan="{{ item.options.all.count }}">{{ item.description }}</td>
+                                <td rowspan="{{ item.options.all.count }}">{{ item.description|safe }}</td>
                             {% endif %}
                             <td>£{{ option.price }} ({{ option.size }})</td>
                         </tr>

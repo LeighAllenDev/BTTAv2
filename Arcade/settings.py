@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'features',
     'menu',
     'bundles',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [

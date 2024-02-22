@@ -1,5 +1,9 @@
 from django.contrib import admin
+from django import forms
 from .models import Category, MenuItem, MenuItemOption
+from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
+
+
 
 class MenuItemOptionInline(admin.TabularInline):
     model = MenuItemOption
@@ -9,8 +13,17 @@ class MenuItemOptionInline(admin.TabularInline):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
 
+class MenuItemForm(forms.ModelForm):
+        class Meta:
+            model = MenuItem
+            widgets = {
+                'description': SummernoteWidget(),
+            }
+            fields = '__all__'
+
 @admin.register(MenuItem)
 class MenuItemAdmin(admin.ModelAdmin):
+    form = MenuItemForm
     list_display = ['name', 'category', 'display_price_range']
     list_filter = ['category']
     inlines = [MenuItemOptionInline]
@@ -25,3 +38,5 @@ class MenuItemAdmin(admin.ModelAdmin):
             return f"£{min_price}"
         return "N/A"
     display_price_range.short_description = 'Price Range'
+
+    
