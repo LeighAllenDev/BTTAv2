@@ -28,13 +28,6 @@ h1 {
     padding: 15px auto;
 }
 
-#home-hero {
-    background: url('../images/home-hero.jpg') no-repeat center center/cover;
-    height: 600px;
-    width: 100%;
-    position: relative;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
