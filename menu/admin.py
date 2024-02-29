@@ -31,7 +31,8 @@ class MenuItemOptionInline(admin.TabularInline):
 # Admin for Category
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'token_cost']
+    list_display = ['name', 'token_cost', 'type']
+    list_filter = ('type',)
 
 # Admin for MenuItem using the custom form and including MenuItemOptionInline
 @admin.register(MenuItem)

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'features',
     'menu',
     'bundles',
+    'booking',
     'django_summernote',
 ]
 

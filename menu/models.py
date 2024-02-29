@@ -6,8 +6,14 @@ def create_default_category():
     return category.pk
 
 class Category(models.Model):
+    CATEGORY_TYPES = (
+        ('food', 'Food'),
+        ('drink', 'Drink'),
+    )
     name = models.CharField(max_length=100)
     token_cost = models.IntegerField(default=1, help_text="Token cost for each item in this category")
+    type = models.CharField(max_length=5, choices=CATEGORY_TYPES, default='food', help_text='Specify whether this category is for food or drink.')
+
 
     def __str__(self):
         return self.name
