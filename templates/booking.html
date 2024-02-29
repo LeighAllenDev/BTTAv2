@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% block content %}
+
+<h1>Book Your Visit Now!</h1>
+
+<p>Choose from our bundles,<br>
+    select your desired food and drinks,<br>
+    then confirm your booking.<br>
+    We look forward to seeing you soon!</p>
+
+{% if user.is_authenticated %}
+<!-- Booking form -->
+{% else %}
+<p>Please <a href="{% url 'account_login' %}?next={{ request.path }}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to make a booking.</p>
+{% endif %}
+
+
+{% endblock %}
