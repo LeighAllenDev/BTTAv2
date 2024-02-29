@@ -7,6 +7,7 @@ def create_default_category():
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    token_cost = models.IntegerField(default=1, help_text="Token cost for each item in this category")
 
     def __str__(self):
         return self.name
