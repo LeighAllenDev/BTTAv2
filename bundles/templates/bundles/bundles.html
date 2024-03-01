@@ -8,14 +8,19 @@
     </div>
     
 
+    <!-- bundles/templates/bundles/list_bundles.html -->
+
 {% for bundle in bundles %}
 <h2>{{ bundle.name }}</h2>
 <p>{{ bundle.description }}</p>
-<p>Food Categories: {% for category in bundle.food_categories.all %}{{ category.name }} {% endfor %}</p>
-<p>Drink Categories: {% for category in bundle.drink_categories.all %}{{ category.name }} {% endfor %}</p>
+<p>{% for category in bundle.food_categories.all %}{{ category.name }} Menu {% endfor %}</p>
+<p>{% for category in bundle.drink_categories.all %}{{ category.name }} , {% endfor %}</p>
 <p>Number of People: {{ bundle.number_of_people }}</p>
 <p>Playtime Hours: {{ bundle.playtime_hours }}</p>
+<p>Price: £{{ bundle.price }}</p>
 {% endfor %}
+
+
 
 </section>
 

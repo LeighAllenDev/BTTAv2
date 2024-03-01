@@ -7,4 +7,4 @@ class BundleForm(forms.ModelForm):
 
     class Meta:
         model = Bundle
-        fields = ['name', 'food_tokens', 'drink_tokens', 'categories', 'drinks', 'number_of_people', 'playtime_hours']
+        fields = ['name', 'food_tokens', 'drink_tokens', 'categories', 'drinks', 'number_of_people', 'playtime_hours', 'price']
