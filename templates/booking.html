@@ -22,15 +22,31 @@
 {% endif %}
 
 <script>
-    document.getElementById("id_bundle").addEventListener("change", function() {
+    // Assume an endpoint /api/bundles/<id>/ provides bundle token information
+    // And /api/categories/ provides token costs for categories
+    
+    let foodTokens = 0;
+    let drinkTokens = 0;
+    
+    document.getElementById('id_bundle').addEventListener('change', function() {
         const bundleId = this.value;
-        // Example AJAX call to get bundle details
         fetch(`/api/bundles/${bundleId}/`)
             .then(response => response.json())
-            .then(data => {
-                document.getElementById("token-info").innerHTML = `Food Tokens: ${data.food_tokens}, Drink Tokens: ${data.drink_tokens}`;
-                // Further logic to update the form based on selected bundle
+            .then(bundle => {
+                foodTokens = bundle.food_tokens; // Update global token counts
+                drinkTokens = bundle.drink_tokens;
+                updateFormForBundle(bundle); // Implement this function to adjust form
             });
     });
+    
+    function updateFormForBundle(bundle) {
+        // Example: Show available tokens in the UI
+        document.getElementById('food-tokens-available').textContent = `Food Tokens Available: ${foodTokens}`;
+        document.getElementById('drink-tokens-available').textContent = `Drink Tokens Available: ${drinkTokens}`;
+    
+        // Fetch categories and their token costs, then update the UI
+        // to let the user make selections until tokens run out.
+    }
     </script>
+    
 {% endblock %}
