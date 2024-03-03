@@ -11,10 +11,26 @@
     We look forward to seeing you soon!</p>
 
 {% if user.is_authenticated %}
-<!-- Booking form -->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div id="token-info"></div>
+    <button type="submit">Book Now</button>
+</form>
 {% else %}
 <p>Please <a href="{% url 'account_login' %}?next={{ request.path }}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to make a booking.</p>
 {% endif %}
 
-
+<script>
+    document.getElementById("id_bundle").addEventListener("change", function() {
+        const bundleId = this.value;
+        // Example AJAX call to get bundle details
+        fetch(`/api/bundles/${bundleId}/`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("token-info").innerHTML = `Food Tokens: ${data.food_tokens}, Drink Tokens: ${data.drink_tokens}`;
+                // Further logic to update the form based on selected bundle
+            });
+    });
+    </script>
 {% endblock %}
