@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'bundles',
     'booking',
     'django_summernote',
+    'rest_framework',
 ]
 
 SITE_ID = 1

@@ -4,6 +4,8 @@ from menu.models import Category, MenuItem
 class Bundle(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
+    categories = models.ManyToManyField(Category, related_name='bundles', blank=True)  # Assuming you want to include multiple categories in a bundle
+
     # Assuming a Category model that includes both food and drink categories
     food_categories = models.ManyToManyField(Category, related_name='food_bundle', limit_choices_to={'type': 'food'})
     drink_categories = models.ManyToManyField(Category, related_name='drink_bundle', limit_choices_to={'type': 'drink'})

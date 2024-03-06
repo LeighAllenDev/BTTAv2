@@ -3,17 +3,18 @@ from .models import Booking
 from menu.models import Category, MenuItem
 
 class BookingForm(forms.ModelForm):
-    # Assuming you have a way to identify menu items that could be part of a bundle
+    
     food_choice = forms.ModelChoiceField(queryset=MenuItem.objects.none(), required=False)
     drink_choice = forms.ModelChoiceField(queryset=MenuItem.objects.none(), required=False)
     
     class Meta:
         model = Booking
-        fields = ['bundle', 'date', 'time']
+        fields = ['bundle', 'date', 'time','food_choice', 'drink_choice']
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
             'time': forms.TimeInput(attrs={'type': 'time'}),
         }
+
 
     def __init__(self, *args, **kwargs):
         super(BookingForm, self).__init__(*args, **kwargs)

@@ -22,31 +22,28 @@
 {% endif %}
 
 <script>
-    // Assume an endpoint /api/bundles/<id>/ provides bundle token information
-    // And /api/categories/ provides token costs for categories
+document.addEventListener('DOMContentLoaded', function() {
+    const bundleSelect = document.getElementById('id_bundle');
     
-    let foodTokens = 0;
-    let drinkTokens = 0;
-    
-    document.getElementById('id_bundle').addEventListener('change', function() {
+    bundleSelect.addEventListener('change', function() {
         const bundleId = this.value;
-        fetch(`/api/bundles/${bundleId}/`)
+        // Example endpoint - adjust according to your project's URL structure
+        fetch(`/api/menu-items-for-bundle/${bundleId}/`) 
             .then(response => response.json())
-            .then(bundle => {
-                foodTokens = bundle.food_tokens; // Update global token counts
-                drinkTokens = bundle.drink_tokens;
-                updateFormForBundle(bundle); // Implement this function to adjust form
+            .then(data => {
+                updateDropdown('id_food_choice', data.foodItems);
+                updateDropdown('id_drink_choice', data.drinkItems);
             });
     });
-    
-    function updateFormForBundle(bundle) {
-        // Example: Show available tokens in the UI
-        document.getElementById('food-tokens-available').textContent = `Food Tokens Available: ${foodTokens}`;
-        document.getElementById('drink-tokens-available').textContent = `Drink Tokens Available: ${drinkTokens}`;
-    
-        // Fetch categories and their token costs, then update the UI
-        // to let the user make selections until tokens run out.
+
+    function updateDropdown(fieldId, items) {
+        let field = document.getElementById(fieldId);
+        field.innerHTML = '';  // Clear existing options
+        items.forEach(item => {
+            let option = new Option(item.name, item.id);
+            field.add(option);
+        });
     }
-    </script>
-    
+});
+</script>
 {% endblock %}

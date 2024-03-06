@@ -1,9 +1,14 @@
+# bundles/admin.py
+
 from django.contrib import admin
 from .models import Bundle
-from menu.models import Category  # Assuming the Category model is from 'menu' app
+from django.forms import CheckboxSelectMultiple
+from django.db import models
 
 class BundleAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'number_of_people', 'playtime_hours', 'price')
-    filter_horizontal = ('food_categories', 'drink_categories')
+    list_display = ('name', 'description')
+    formfield_overrides = {
+        models.ManyToManyField: {'widget': CheckboxSelectMultiple},
+    }
 
 admin.site.register(Bundle, BundleAdmin)
