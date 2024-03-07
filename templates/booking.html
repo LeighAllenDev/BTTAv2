@@ -11,39 +11,16 @@
     We look forward to seeing you soon!</p>
 
 {% if user.is_authenticated %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div id="token-info"></div>
-    <button type="submit">Book Now</button>
-</form>
+<div class="container mt-5">
+    <h2>Make a Booking</h2>
+    <form method="post" id="bookingForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit Booking</button>
+    </form>
+</div>
 {% else %}
 <p>Please <a href="{% url 'account_login' %}?next={{ request.path }}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to make a booking.</p>
 {% endif %}
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const bundleSelect = document.getElementById('id_bundle');
-    
-    bundleSelect.addEventListener('change', function() {
-        const bundleId = this.value;
-        // Example endpoint - adjust according to your project's URL structure
-        fetch(`/api/menu-items-for-bundle/${bundleId}/`) 
-            .then(response => response.json())
-            .then(data => {
-                updateDropdown('id_food_choice', data.foodItems);
-                updateDropdown('id_drink_choice', data.drinkItems);
-            });
-    });
-
-    function updateDropdown(fieldId, items) {
-        let field = document.getElementById(fieldId);
-        field.innerHTML = '';  // Clear existing options
-        items.forEach(item => {
-            let option = new Option(item.name, item.id);
-            field.add(option);
-        });
-    }
-});
-</script>
 {% endblock %}
