@@ -12,10 +12,13 @@ def menu(request):
 
 
 @api_view(['GET'])
-def menu_items_list(request, category_id=None):
-    if category_id:
-        menu_items = MenuItem.objects.filter(category__id=category_id)
-    else:
-        menu_items = MenuItem.objects.all()
-    serializer = MenuItemSerializer(menu_items, many=True)
-    return Response(serializer.data)
+def menu_items_json(request):
+    food_items = MenuItem.objects.filter(category__type='food')
+    drink_items = MenuItem.objects.filter(category__type='drink')
+    food_serializer = MenuItemSerializer(food_items, many=True)
+    drink_serializer = MenuItemSerializer(drink_items, many=True)
+    
+    return Response({
+        'food_items': food_serializer.data,
+        'drink_items': drink_serializer.data
+    })
