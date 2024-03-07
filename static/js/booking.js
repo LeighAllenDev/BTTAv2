@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function fetchMenuItemsForBundle(bundleId) {
     // Adjust the URL to match your API endpoint
-    fetch(`/api/bundle-menu-items/${bundleId}/`)  
+    fetch(`/bundles/api/bundles/${bundleId}/`)   
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             updateDropdown('id_food_choice', data.food_items);
             updateDropdown('id_drink_choice', data.drink_items);
         })
@@ -21,8 +22,10 @@ function fetchMenuItemsForBundle(bundleId) {
 function updateDropdown(fieldId, items) {
     const dropdown = document.querySelector(`#${fieldId}`);
     dropdown.innerHTML = ''; // Clear existing options
-    items.forEach(item => {
-        const option = new Option(item.name, item.id);
-        dropdown.appendChild(option);
-    });
+    if (Array.isArray(items)) { // Ensure items is an array before iterating
+        items.forEach(item => {
+            const option = new Option(item.name, item.id);
+            dropdown.appendChild(option);
+        });
+    }
 }

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% block content %}
@@ -23,4 +24,8 @@
 <p>Please <a href="{% url 'account_login' %}?next={{ request.path }}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to make a booking.</p>
 {% endif %}
 
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/booking.js' %}"></script>
 {% endblock %}
