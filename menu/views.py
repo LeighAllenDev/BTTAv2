@@ -1,23 +1,17 @@
 from django.shortcuts import render
 from .models import Category, MenuItem
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from .serializers import MenuItemSerializer
+from django.http import JsonResponse
 
 def menu(request):
     # Combine prefetch_related and exclude in a single query
     categories = Category.objects.exclude(name='Default Category').prefetch_related('menuitems__options')
     return render(request, 'menu/menu.html', {'categories': categories})
 
-@api_view(['GET'])
-def menu_items_json(request):
-    # Your API view seems correctly set up to provide serialized data for food and drink items
-    food_items = MenuItem.objects.filter(category__type='food')
-    drink_items = MenuItem.objects.filter(category__type='drink')
-    food_serializer = MenuItemSerializer(food_items, many=True)
-    drink_serializer = MenuItemSerializer(drink_items, many=True)
+def menu_items_api(request, category_id=None):
+    if category_id:
+        menu_items = MenuItem.objects.filter(category_id=category_id)
+    else:
+        menu_items = MenuItem.objects.all()
     
-    return Response({
-        'food_items': food_serializer.data,
-        'drink_items': drink_serializer.data
-    })
+    items = [{"id": item.id, "name": item.name} for item in menu_items]
+    return JsonResponse({"menu_items": items})

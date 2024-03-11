@@ -10,14 +10,15 @@
 
     <!-- bundles/templates/bundles/list_bundles.html -->
 
-{% for bundle in bundles %}
-<h2>{{ bundle.name }}</h2>
-<p>{{ bundle.description }}</p>
-<p>{% for category in bundle.food_categories.all %}{{ category.name }} Menu {% endfor %}</p>
-<p>{% for category in bundle.drink_categories.all %}{{ category.name }} , {% endfor %}</p>
-<p>Number of People: {{ bundle.number_of_people }}</p>
-<p>Playtime Hours: {{ bundle.playtime_hours }}</p>
-<p>Price: £{{ bundle.price }}</p>
+    {% for bundle in bundles %}
+    <h2>{{ bundle.name }}</h2>
+    <p>{{ bundle.description }}</p>
+    <p>Food Choices: {% for category in bundle.food_categories.all %} {{ category.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <p>Drink Choices: {% for category in bundle.drink_categories.all %} {{ category.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <p>Number of People: {{ bundle.number_of_people }}</p>
+    <p>Playtime Hours: {{ bundle.playtime_hours }}</p>
+    <p>Price: £{{ bundle.price }}</p>
+    <p>Total Tokens: {{ bundle.total_tokens }}</p> <!-- If you want to display this -->
 {% endfor %}
 
 

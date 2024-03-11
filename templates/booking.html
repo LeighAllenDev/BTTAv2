@@ -14,10 +14,12 @@
 {% if user.is_authenticated %}
 <div class="container mt-5">
     <h2>Make a Booking</h2>
-    <form method="post" id="bookingForm">
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit Booking</button>
+        <div id="tokens-info">Tokens Available: </div>
+        <!-- Add more form fields as needed -->
+        <button type="submit">Submit Booking</button>
     </form>
 </div>
 {% else %}
