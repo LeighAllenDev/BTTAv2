@@ -23,21 +23,12 @@ def bundle_list(request):
 def bundle_detail(request, pk):
     try:
         bundle = Bundle.objects.get(pk=pk)
-        # Manually create the bundle data
-        bundle_data = {
-            'id': bundle.id,
-            'name': bundle.name,
-            'description': bundle.description,
-            'food_tokens': bundle.food_tokens,
-            'drink_tokens': bundle.drink_tokens,
-            # Include fields for categories, tokens etc. as needed
-            # For related categories, you might need additional queries and processing
-            'food_categories': list(bundle.food_categories.values('id', 'name')),
-            'drink_categories': list(bundle.drink_categories.values('id', 'name')),
-            # Assuming you have fields like food_tokens, drink_tokens in your model
+        # Simplify the response for demonstration purposes
+        response = {
+            "id": bundle.id,
+            "food_categories": [{"id": cat.id, "name": cat.name} for cat in bundle.food_categories.all()],
+            "drink_categories": [{"id": cat.id, "name": cat.name} for cat in bundle.drink_categories.all()],
         }
-        
-        return JsonResponse(bundle_data)
+        return JsonResponse(response)
     except Bundle.DoesNotExist:
-        return JsonResponse({'message': 'Bundle not found'}, status=404)  # Using Django's status code shortcut
-        
+        return JsonResponse({'error': 'Bundle not found'}, status=404)

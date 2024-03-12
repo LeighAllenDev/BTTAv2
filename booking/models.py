@@ -10,10 +10,30 @@ class Booking(models.Model):
     time = models.TimeField()
     food_items = models.ManyToManyField(MenuItem, related_name="booking_food_items", blank=True)
     drink_items = models.ManyToManyField(MenuItem, related_name="booking_drink_items", blank=True)
-    # Additional fields for tokens if needed
-    
+    food_tokens_used = models.IntegerField(default=0, help_text="Number of food tokens used in this booking")
+    drink_tokens_used = models.IntegerField(default=0, help_text="Number of drink tokens used in this booking")
+
     def __str__(self):
         return f"Booking for {self.user} on {self.date} at {self.time}"
 
-    # Optionally, add methods to check token allocation if implementing a token system
+    @property
+    def total_tokens_used(self):
+        """Calculate total tokens used for both food and drink."""
+        return self.food_tokens_used + self.drink_tokens_used
 
+    def check_token_allocation(self):
+        """Method to check if the selected items exceed the available tokens in the selected bundle.
+        This could be implemented to automatically validate upon booking save or as a manual method to call."""
+        if self.bundle:
+            total_food_tokens_available = self.bundle.food_tokens
+            total_drink_tokens_available = self.bundle.drink_tokens
+
+            total_food_tokens_used = sum([item.token_cost for item in self.food_items.all()])
+            total_drink_tokens_used = sum([item.token_cost for item in self.drink_items.all()])
+
+            self.food_tokens_used = total_food_tokens_used
+            self.drink_tokens_used = total_drink_tokens_used
+
+            if total_food_tokens_used > total_food_tokens_available or total_drink_tokens_used > total_drink_tokens_available:
+                return False  
+            return True

@@ -11,23 +11,48 @@
     then confirm your booking.<br>
     We look forward to seeing you soon!</p>
 
-{% if user.is_authenticated %}
-<div class="container mt-5">
-    <h2>Make a Booking</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div id="tokens-info">Tokens Available: </div>
-        <!-- Add more form fields as needed -->
-        <button type="submit">Submit Booking</button>
-    </form>
-</div>
-{% else %}
-<p>Please <a href="{% url 'account_login' %}?next={{ request.path }}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to make a booking.</p>
-{% endif %}
+    
+    <div class="container">
+        <h1>Book Your Visit</h1>
+        {% if user.is_authenticated %}
+        <form method="post" id="booking-form">
+            {% csrf_token %}
+            <!-- Bundle Selection -->
+            <div class="form-group">
+                {{ form.bundle.label_tag }} {{ form.bundle }}
+            </div>
+    
+            <!-- Food Choices Container -->
+            <div class="form-group" id="food-choice-container">
+                {{ form.food_choice.label_tag }} {{ form.food_choice }}
+            </div>
+    
+            <!-- Drink Choices Container -->
+            <div class="form-group" id="drink-choice-container">
+                {{ form.drink_choice.label_tag }} {{ form.drink_choice }}
+            </div>
+    
+            <!-- Date and Time -->
+            <div class="form-group">
+                {{ form.date.label_tag }} {{ form.date }}
+                {{ form.time.label_tag }} {{ form.time }}
+            </div>
+    
+            <!-- Tokens Information -->
+            <div id="tokens-info">
+                Tokens Available: <span id="tokens-remaining"></span>
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Submit Booking</button>
+        </form>
+        {% else %}
+        <p>Please <a href="{% url 'account_login' %}?next={{ request.path }}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to make a booking.</p>
+        {% endif %}
+    </div>
 
+    
 {% endblock %}
-
 {% block javascript %}
-<script src="{% static 'js/booking.js' %}"></script>
+    <script src="{% static 'js/booking.js' %}"></script>
 {% endblock %}
+
