@@ -12,12 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to fetch details for the selected bundle
 function fetchBundleDetails(bundleId) {
     // Use the endpoint with the selected bundle's ID
+    console.log(bundleId)
     fetch(`/bundles/api/bundles/${bundleId}/`)
         .then(response => {
             if (!response.ok) throw new Error('Network response was not ok');
+            console.log(response)
             return response.json();
         })
         .then(data => {
+            console.log(data)
             // Assuming 'data' contains properties for food_items, drink_items, and tokens
             // Update the dropdowns for food and drink choices
             updateDropdown('id_food_choice', data.food_items);

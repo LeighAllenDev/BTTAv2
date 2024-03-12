@@ -7,7 +7,6 @@ from bundles.models import Bundle  # Ensure this import is correct based on your
 def booking_view(request):
     initial_data = {}
     bundle_id = request.POST.get('bundle') if request.method == 'POST' else request.GET.get('bundle')
-
     if bundle_id:
         try:
             initial_data['bundle'] = Bundle.objects.get(id=bundle_id)
@@ -19,9 +18,14 @@ def booking_view(request):
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
-            # Here you might want to also save food and drink choices if that's part of your logic
+            # Save the booking instance to generate an ID
             booking.save()
-            return redirect('booking_success')
+            # Now that the booking instance has an ID, set the many-to-many field
+            # Note: Make sure form.cleaned_data['food_choice'] gives the correct data
+            booking.food_items.set([form.cleaned_data['food_choice']])
+            booking.drink_items.set([form.cleaned_data['drink_choice']])
+            # No need to call save() again unless you have other fields to update after setting many-to-many relations
+            return redirect('home')
     else:
         form = BookingForm(initial=initial_data)
 
