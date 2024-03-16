@@ -3,12 +3,9 @@
 * {
     padding: 0%;
     background: fixed;
-    background-color: black;
+    /* background-color: black; */
 }
 
-.bg-img {
-    background-image: url("/static/images/home-hero.jpg") no-repeat center center/cover;
-}
 
 body {
     display: flex;
@@ -16,14 +13,23 @@ body {
     /* min-height: 100vh; */
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 100px;
     font-family: 'Exo 2', sans-serif;
     color: bisque;
     background-color: black;
     padding: 2rem;
 }
 
-.navbar {
-    background-color: black;
+/* Nav bar */
+.left {
+    float: left;
+    display: flex;
+}
+
+.right {
+    float: right;
+    display: flex;
+    margin-right: 0px;
 }
 
 
@@ -37,9 +43,13 @@ h1 {
     padding: 15px auto;
 }
 
+.container {
+    margin-bottom: 50px;
+}
+
 #intro-image {
     border-radius: 50%;
-    background: url("{% static 'images/home-hero.jpg' %}") no-repeat center center/cover;
+    background: url("{% static '/images/home-hero.jpg' %}") no-repeat center center/cover;
 }
 
 table {
@@ -70,6 +80,7 @@ ul {
     width: 100%;
     color: white;
     text-align: center;
+    position: fixed;
 }
 
 #social-networks {
