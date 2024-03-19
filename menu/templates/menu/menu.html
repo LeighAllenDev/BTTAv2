@@ -1,9 +1,13 @@
 {% extends 'base.html' %} 
 {% block content %}
-<section id="refreshments-hero">
-  <div class="cover-text">
-    <h2>Back to the Refreshments</h2>
-    <h3>Little Energy Boosters while you're gaming</h3>
+<section class="container-fluid">
+  <div class="row">
+    <div id="menu" class="col-md-12 bg-img-container">
+      <div class="cover-text">
+        <h2>Back to the Refreshments</h2>
+        <h3>Little Energy Boosters while you're gaming</h3>
+      </div>
+    </div>
   </div>
 </section>
 <section class="description">
@@ -18,12 +22,13 @@
     </div>
   </div>
 </section>
-<section id="pricing">
-  <div class="menu-container">
+<section id="pricing" class="container-fluid">
+  <div class="row">
+    <div class="col-12 colspan-8">
     <h3>Menu Overview</h3>
     {% for category in categories %}
     <h2>{{ category.name }}</h2>
-    <div class="col-8">
+    <div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -55,6 +60,7 @@
         {% endfor %}
       </tbody>
     </table>
+  </div>
   </div>
     {% empty %}
     <p>No categories available</p>

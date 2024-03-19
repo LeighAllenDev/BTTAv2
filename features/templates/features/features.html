@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-        <section id="features-hero" class="container-fluid">
+        <section class="container-fluid">
         <div class="row">
+            <div id="features" class="col-md-12 bg-img-container">
             <div class="cover-text">
                 <h2>Features</h2>
                 <h3>A wide selection available for everyone</h3>
             </div>
         </div>
+        </div>
         </section>
-        <section class="description">
+        <section class="description container">
+            <div class="row">
             <h2 class="subtitle">What Games are available?</h2>
             <div class="intro">
                 <div id="retro">
@@ -29,7 +33,7 @@
                         <p>And many more games available, come and see us for our full range!</p>
                      </div>
                 </div>
-                <img id="space-boy" class="intro-image" src="assets/images/space-boy.jpeg" alt="Space Invaders Logo">
+                <img class="lower-img img-fluid" src="{% static 'images/girlInArcade.jpg' %}" alt="Space Invaders Logo">
                 <div id="modern">
                     <div>
                         <h3 class="subtitle">Modern Consoles</h3>
@@ -47,8 +51,8 @@
             </div>
         </section>
         <section id="options">
-            <h2 class="subtitle">Looking for More?</h2>
-            <div class="description">
+            <h2 class="end">Looking for More?</h2>
+            <div class="end">
                 <div>
                 <p>As well as a wide selection of video games and consoles, we also have a vast choice of boardgames and cardgames available.<br>You can also hire a table for tabletop gaming, feel free to bring your own games and come hang out with us!</p>
                 </div>

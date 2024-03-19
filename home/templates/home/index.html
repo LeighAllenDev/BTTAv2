@@ -4,44 +4,44 @@
 {% block content %}
 
     
-        <section id="home" class="container-fluid has-bg-img">
+        <section class="container-fluid">
         <div class="row">
-            <div class="col-md-12 bg-img img-fluid">
-                <!-- <img class="bg-img img-fluid" src="{% static 'images/home-hero.jpg' %}" alt=""> -->
-                <div class="cover-text"></div>
+            <div id="home" class="col-md-12 bg-img-container">
+                <div class="cover-text">
                 <h2>Back To The Arcade</h2>
                 <h3>An Arcade that will time warp you into the past!</h3>
-            </div>
+                </div>
             </div>
         </div>
         </section>
-        <section id="who-we-are" class="container">
+        <section id="who-we-are" class="container-fluid">
         <div class="row">
-            <div class="col-md-4 intro">
+            <div class="col-md-4 l-t">
                     <div>
-                        <h2 class="subtitle">Who We Are</h2>
+                        <h2>Who We Are</h2>
                         <p>We are a local business in the Brighton area who's number 1 passion is Retro Gaming. <br><br> We have
                             based our Arcade around a traditional American Video Gaming arcade from the early 70's with a few
                             moddern twists.</p>
                     </div>
             </div>
             <div class="col-md-4">
-                <img id="intro-image" class="img-fluid" src="{% static 'images/space-boy.jpeg' %}" alt="space invaders logo on yellow bricks">
+                <img id="intro-image" class="img-fluid lower-img" src="{% static 'images/space-boy.jpeg' %}" alt="space invaders logo on yellow bricks">
             </div>
-                <div class="col-md-4 offering">
-                    <div>
-                        <h2 class="subtitle">What We Offer</h2>
-                        <p>In our establishment we offer an extensive range of retro arcade games which are pay to play, or free
-                            with our premium service.<br>
-                            <br>As well as a wide selection of Retro Games and Arcade machines, we have cafe to cater for adults
-                            and children, with vegan options.
-                        </p>
-                    </div>
+            <div class="col-md-4 r-t">
+                <div>
+                    <h2>What We Offer</h2>
+                    <p>In our establishment we offer an extensive range of retro arcade games which are pay to play, or free
+                        with our premium service.<br>
+                        <br>As well as a wide selection of Retro Games and Arcade machines, we have cafe to cater for adults
+                        and children, with vegan options.
+                    </p>
                 </div>
+            </div>
             </div>
         </div>
         </section>
-        <section id="location" class="container">
+        <hr>
+        <section id="location" class="container-fluid">
         <div class="row">
             <h2 class="subtitle">Where to Find Us</h2>
             <div class="description">
@@ -49,7 +49,7 @@
                     <p>We are located in Brighton, just down the road from the station</p>
                 </div>
             </div>
-            <div class="contact">
+            <div class="contact end">
                 <div>
                     <p>Phone: 01273272233</p>
                 </div>

@@ -3,6 +3,7 @@
 * {
     padding: 0%;
     background: fixed;
+    box-sizing: border-box;
     /* background-color: black; */
 }
 
@@ -20,32 +21,54 @@ body {
 }
 
 /* Nav bar */
-.left {
-    float: left;
-    display: flex;
-}
 
-.right {
-    float: right;
-    display: flex;
-    margin-right: 0px;
-}
-
-.bg-img {
-    background: no-repeat center center/cover;
-    background-image: url(/static/images/home-hero.jpg);
-    height: 400px;
+.bg-img-container {
+    
+    height: 600px;
     padding: 0%;
     width: fit-content;
     top: 0;
+    position: relative;
+    z-index: 3;
 }
+
+#home{
+    background: url(/static/images/home-hero.jpg) no-repeat center center/cover;
+}
+
+#features {
+    background: url(/static/images/features-hero.jpg) no-repeat center center/cover;
+}
+
+#menu {
+    background: url(/static/images/menu-hero.jpg) no-repeat center center/cover;
+}
+
+#bundles {
+    background: url(/static/images/bundles-hero.jpg) no-repeat center center/cover;
+}
+
+/* .cover-text {
+    padding: 2rem;
+    margin-top: 150px;
+    background-color: lightslategrey;
+    background-size: contain;
+} */
 
 .cover-text {
-    padding: 2rem;
-    margin-top: 180px;
-    /* background-color: lightslategrey; */
+    position: absolute;
+    font-size: 100%;
+    background-color: #212529;
+    margin-top: 300px;
+    opacity: 80%;
+    padding: 1rem;
 }
 
+.cover-text > h2, h3 {
+    width: 90%;
+    text-transform: capitalize;
+    color: #ffffff;
+}
 
 
 h1, h2 {    
@@ -53,36 +76,46 @@ h1, h2 {
     color: darkorange;
     line-height: 1.5rem;
     font-weight: bolder;
+    opacity: 100%;
 }
 
 h1 {
     padding: 15px auto;
 }
 
-.container {
-    margin-bottom: 50px;
-    padding: 1rem;
+
+
+.l-t {
+    text-align: left;
+    padding-left: 2em;
 }
 
-#intro-image {
-    padding: 0;
+.r-t {
+    text-align: right;
+    padding-right: 2em;
+}
+
+.lower-img {
+    padding: 2rem;
     border-radius: 50%;
     width: 300px;
     height: 300px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-    padding: auto;
+thead {
+    font-size: 200%;
 }
 
-th, td {
+table {
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+td, th {
     text-align: center;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    color: #ddd;
+    padding: 1rem;
+    border: 1px dashed darkorange;
+    color: antiquewhite;
 }
 
 .category-name {
@@ -108,4 +141,15 @@ ul {
     display: flex;
     justify-content: space-evenly;
     list-style-type: none;
+}
+
+.col-md-4 {
+    padding-top: 1.5rem;
+    font-size: large;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.end {
+    padding-bottom: 2rem;
 }
