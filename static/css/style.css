@@ -30,6 +30,7 @@ body {
     top: 0;
     position: relative;
     z-index: 3;
+    margin-bottom: 1rem;
 }
 
 #home{
@@ -48,13 +49,6 @@ body {
     background: url(/static/images/bundles-hero.jpg) no-repeat center center/cover;
 }
 
-/* .cover-text {
-    padding: 2rem;
-    margin-top: 150px;
-    background-color: lightslategrey;
-    background-size: contain;
-} */
-
 .cover-text {
     position: absolute;
     font-size: 100%;
@@ -62,6 +56,7 @@ body {
     margin-top: 300px;
     opacity: 80%;
     padding: 1rem;
+    margin-left: 2em;
 }
 
 .cover-text > h2, h3 {
@@ -72,27 +67,26 @@ body {
 
 
 h1, h2 {    
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: darkorange;
     line-height: 1.5rem;
-    font-weight: bolder;
+    /* font-weight: bold; */
     opacity: 100%;
+    padding: 1.5em auto;
+    margin-bottom: 1em;
 }
 
-h1 {
-    padding: 15px auto;
+p {
+    font-size: 120%;
 }
-
 
 
 .l-t {
-    text-align: left;
-    padding-left: 2em;
+    padding-left: 2.75rem;
 }
 
 .r-t {
-    text-align: right;
-    padding-right: 2em;
+    padding-right: 2.75rem;
 }
 
 .lower-img {
@@ -107,7 +101,7 @@ thead {
 }
 
 table {
-    width: 100%;
+    /* width: 100%; */
     padding-bottom: 2rem;
 }
 
@@ -116,6 +110,11 @@ td, th {
     padding: 1rem;
     border: 1px dashed darkorange;
     color: antiquewhite;
+    line-height: 1.25rem;
+}
+
+th {
+    font-weight: 400;
 }
 
 .category-name {
@@ -126,13 +125,28 @@ ul {
     list-style: none;
 }
 
+
+.divider {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .dash {
+    display: inline-block;
+    width: 20px; /* Adjust the width of each dash */
+    height: 1px; /* Height of the line */
+    margin: 2rem 5px; /* Adjust the spacing between dashes */
+    background: darkorange; /* Color of the dashes */
+    /* margin-bottom: 2rem; */
+  }
+
 .footer {
     left: 0;
     bottom: 0;
     width: 100%;
     color: white;
     text-align: center;
-    position: fixed;
+    position:sticky;
     height: 40px;
 }
 
@@ -146,10 +160,8 @@ ul {
 .col-md-4 {
     padding-top: 1.5rem;
     font-size: large;
-    padding-left: 2rem;
-    padding-right: 2rem;
 }
 
 .end {
-    padding-bottom: 2rem;
+    padding-bottom: 2.5rem;
 }

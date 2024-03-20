@@ -12,13 +12,12 @@
         </div>
         </div>
         </section>
-        <section class="description container">
-            <div class="row">
+        <section class="description container-fluid">
             <h2 class="subtitle">What Games are available?</h2>
-            <div class="intro">
-                <div id="retro">
+            <div class="row">   
+                <div class="col-md-4 l-t">
                     <div>
-                        <h3 class="subtitle">Retro Games</h3>
+                        <h3>Retro Games</h3>
                         <p>We have a wide selection of Retro Arcade games such as:</p>
                         <ul>
                         <li>PacMan</li>
@@ -31,30 +30,37 @@
                         <li>Sega Rally</li>
                         </ul>
                         <p>And many more games available, come and see us for our full range!</p>
-                     </div>
-                </div>
-                <img class="lower-img img-fluid" src="{% static 'images/girlInArcade.jpg' %}" alt="Space Invaders Logo">
-                <div id="modern">
-                    <div>
-                        <h3 class="subtitle">Modern Consoles</h3>
-                        <p>We have a range of screens set up with more current consoles such as:</p>
-                        <ul>
-                            <li>PS5 and PS4</li>
-                            <li>Playstation 3</li>
-                            <li>Xbox One Series S</li>
-                            <li>Nintendo Switch</li>
-                            <li>Nintendo Wii</li>
-                        </ul>
-                        <p>All of these consoles are packed full of games that can have from 1 to 4 players</p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="options">
-            <h2 class="end">Looking for More?</h2>
-            <div class="end">
+                <div class="col-md-4">
+                    <img class="lower-img img-fluid" src="{% static 'images/girlInArcade.jpg' %}" alt="Space Invaders Logo">
+                </div>
+                <div class="col-md-4 r-t">
                 <div>
-                <p>As well as a wide selection of video games and consoles, we also have a vast choice of boardgames and cardgames available.<br>You can also hire a table for tabletop gaming, feel free to bring your own games and come hang out with us!</p>
+                    <h3>Modern Consoles</h3>
+                    <p>We have a range of screens set up with more current consoles such as:</p>
+                    <ul>
+                        <li>PS5 and PS4</li>
+                        <li>Playstation 3</li>
+                        <li>Xbox One Series S</li>
+                        <li>Nintendo Switch</li>
+                        <li>Nintendo Wii</li>
+                    </ul>
+                    <p>All of these consoles are packed full of games that can have from 1 to 4 players</p>
+                </div>
+            </div>
+        </div>
+        </section>
+        <div class="divider">
+            <span class="dash"></span>
+            <span class="dash"></span>
+            <span class="dash"></span>
+        </div>
+        <section id="options" class="container-fluid">
+            <div class="row">
+                <h2 class="end">Looking for More?</h2>
+                <div class="end">
+                    <p>As well as a wide selection of video games and consoles, we also have a vast choice of boardgames and cardgames available.<br>You can also hire a table for tabletop gaming, feel free to bring your own games and come hang out with us!</p>
                 </div>
             </div>
         </section>
