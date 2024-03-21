@@ -17,23 +17,69 @@
         <h2>What are the Costs?</h2>
         <p>Each of our machines can be used pay per play with coins or contactless,<br> And drinks and food can be purchased individually.<br> Pricing for these can be found on the refreshments menu.</p>
     </div>
-    
+</section>   
 
     <!-- bundles/templates/bundles/list_bundles.html -->
+<section class="container-fluid">
+    
 
     {% for bundle in bundles %}
-    <h2>{{ bundle.name }}</h2>
-    <p>{{ bundle.description }}</p>
-    <p>Food Choices: {% for category in bundle.food_categories.all %} {{ category.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-    <p>Drink Choices: {% for category in bundle.drink_categories.all %} {{ category.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-    <p>Number of People: {{ bundle.number_of_people }}</p>
-    <p>Playtime Hours: {{ bundle.playtime_hours }}</p>
-    <p>Price: £{{ bundle.price }}</p>
-    <p>Total Tokens: {{ bundle.total_tokens }}</p> <!-- If you want to display this -->
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <td>{{ bundle.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ bundle.description }}</td>
+            </tr>
+            <!-- <tr>
+                <th>Food Choices</th>
+                <td>
+                    {% for category in bundle.food_categories.all %}
+                        {{ category.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Drink Choices</th>
+                <td>
+                    {% for category in bundle.drink_categories.all %}
+                        {{ category.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+            </tr> -->
+            <tr>
+                <th>Number of People</th>
+                <td>{{ bundle.number_of_people }}</td>
+            </tr>
+            <tr>
+                <th>Playtime Hours</th>
+                <td>{{ bundle.playtime_hours }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>£{{ bundle.price }}</td>
+            </tr>
+            <tr>
+                <th>Total Tokens</th>
+                <td>{{ bundle.total_tokens }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+    <div class="divider">
+        <span class="dash"></span>
+        <span class="dash"></span>
+        <span class="dash"></span>
+    </div>
 {% endfor %}
 
 
 
+</div>
 </section>
 
 {% endblock %}

@@ -4,22 +4,40 @@
 {% url 'account_signup' as signup_url %}
 {% block content %}
 
-<h1>Book Your Visit Now!</h1>
-
-<p>Choose from our bundles,<br>
-    select your desired food and drinks,<br>
-    then confirm your booking.<br>
-    We look forward to seeing you soon!</p>
-
+    <section class="container-fluid">
+        <div class="row">
+            <div id="booking" class="col-md-12 bg-img-container">
+                <div class="cover-text">
+                    <h2>Book Your Visit Now!</h2>
+                    <h3>Choose the bundle that meets your needs</h3>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <div class="container">
-        <h1>Book Your Visit</h1>
-        {% if user.is_authenticated %}
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Booking your Visit</h2>
+                <h3>Choose from our bundles,
+                    select your desired food and drinks,
+                    then confirm your booking.
+                    <br>We look forward to seeing you soon!</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                {% if user.is_authenticated %}
         <form method="post" id="booking-form">
             {% csrf_token %}
             <!-- Bundle Selection -->
             <div class="form-group">
                 {{ form.bundle.label_tag }} {{ form.bundle }}
+            </div>
+
+            <!-- Tokens Information -->
+            <div id="tokens-info">
+                Tokens Available: <span id="tokens-remaining"></span>
             </div>
     
             <!-- Food Choices Container -->
@@ -38,17 +56,17 @@
                 {{ form.time.label_tag }} {{ form.time }}
             </div>
     
-            <!-- Tokens Information -->
-            <div id="tokens-info">
-                Tokens Available: <span id="tokens-remaining"></span>
-            </div>
+            
     
             <button type="submit" class="btn btn-primary">Submit Booking</button>
         </form>
         {% else %}
         <p>Please <a href="{% url 'account_login' %}?next={{ request.path }}">sign in</a> or <a href="{% url 'account_signup' %}">register</a> to make a booking.</p>
         {% endif %}
-    </div>
+            </div>
+        </div>
+    </section>
+        
 
     
 {% endblock %}
