@@ -60,11 +60,9 @@ body {
     margin-top: 15%;
     opacity: 80%;
     padding: 1rem;
-    margin-left: 2em;
 }
 
 .cover-text > h2, h3 {
-    width: 90%;
     text-transform: capitalize;
     color: #ffffff;
 }
