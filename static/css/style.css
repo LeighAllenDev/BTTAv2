@@ -4,7 +4,6 @@
     padding: 0%;
     /* background: fixed; */
     box-sizing: border-box;
-    font-family: 'Exo2', sans-serif;
     /* background-color: black; */
 }
 
@@ -169,6 +168,10 @@ ul {
 .col-md-4 {
     padding-top: 1.5rem;
     font-size: large;
+}
+
+.card {
+    background-color: #212529;
 }
 
 .end {

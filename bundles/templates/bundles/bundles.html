@@ -35,22 +35,6 @@
                 <th>Description</th>
                 <td>{{ bundle.description | safe }}</td>
             </tr>
-            <!-- <tr>
-                <th>Food Choices</th>
-                <td>
-                    {% for category in bundle.food_categories.all %}
-                        {{ category.name }}{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </td>
-            </tr>
-            <tr>
-                <th>Drink Choices</th>
-                <td>
-                    {% for category in bundle.drink_categories.all %}
-                        {{ category.name }}{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </td>
-            </tr> -->
             <tr>
                 <th>Number of People</th>
                 <td>{{ bundle.number_of_people }}</td>
@@ -62,10 +46,6 @@
             <tr>
                 <th>Price</th>
                 <td>£{{ bundle.price }}</td>
-            </tr>
-            <tr>
-                <th>Total Tokens</th>
-                <td>{{ bundle.total_tokens }}</td>
             </tr>
         </table>
     </div>
