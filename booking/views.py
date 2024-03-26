@@ -20,12 +20,10 @@ def booking_view(request):
             booking.user = request.user
             # Save the booking instance to generate an ID
             booking.save()
-            # Now that the booking instance has an ID, set the many-to-many field
-            # Note: Make sure form.cleaned_data['food_choice'] gives the correct data
-            booking.food_items.set([form.cleaned_data['food_choice']])
-            booking.drink_items.set([form.cleaned_data['drink_choice']])
-            # No need to call save() again unless you have other fields to update after setting many-to-many relations
             return redirect('home')
+        else:
+            pass 
+            
     else:
         form = BookingForm(initial=initial_data)
 

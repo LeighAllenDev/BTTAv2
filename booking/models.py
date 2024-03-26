@@ -8,10 +8,11 @@ class Booking(models.Model):
     bundle = models.ForeignKey(Bundle, on_delete=models.SET_NULL, null=True, blank=True)
     date = models.DateField()
     time = models.TimeField()
-    food_items = models.ManyToManyField(MenuItem, related_name="booking_food_items", blank=True)
-    drink_items = models.ManyToManyField(MenuItem, related_name="booking_drink_items", blank=True)
-    food_tokens_used = models.IntegerField(default=0, help_text="Number of food tokens used in this booking")
-    drink_tokens_used = models.IntegerField(default=0, help_text="Number of drink tokens used in this booking")
+    approved = models.BooleanField(default=False)
+    # food_items = models.ManyToManyField(MenuItem, related_name="booking_food_items", blank=True)
+    # drink_items = models.ManyToManyField(MenuItem, related_name="booking_drink_items", blank=True)
+    # food_tokens_used = models.IntegerField(default=0, help_text="Number of food tokens used in this booking")
+    # drink_tokens_used = models.IntegerField(default=0, help_text="Number of drink tokens used in this booking")
 
     def __str__(self):
         return f"Booking for {self.user} on {self.date} at {self.time}"

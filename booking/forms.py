@@ -1,15 +1,12 @@
 from django import forms
 from .models import Booking
-from menu.models import MenuItem  # Import other necessary models
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 class BookingForm(forms.ModelForm):
-    # Assuming you already have these fields defined
-    food_choice = forms.ModelChoiceField(queryset=MenuItem.objects.none(), required=False)
-    drink_choice = forms.ModelChoiceField(queryset=MenuItem.objects.none(), required=False)
-
     class Meta:
         model = Booking
-        fields = ['bundle', 'date', 'time', 'food_choice', 'drink_choice']
+        fields = ['bundle', 'date', 'time',]
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
             'time': forms.TimeInput(attrs={'type': 'time'}),
@@ -17,7 +14,23 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(BookingForm, self).__init__(*args, **kwargs)
-        if 'initial' in kwargs and 'bundle' in kwargs['initial']:
-            bundle = kwargs['initial']['bundle']
-            self.fields['food_choice'].queryset = MenuItem.objects.filter(category__in=bundle.food_categories.all())
-            self.fields['drink_choice'].queryset = MenuItem.objects.filter(category__in=bundle.drink_categories.all())
+        # Initialize form and dynamically adjust fields if necessary
+
+    def clean_date(self):
+        date = self.cleaned_data.get('date')
+        if date:
+            # Prevent same-day bookings
+            today = timezone.localdate()
+            if date <= today:
+                raise ValidationError("Bookings cannot be made for today. Please select a future date.")
+        return date
+
+    def clean_time(self):
+        time = self.cleaned_data.get('time')
+        if time:
+            # Ensure the booking time is within business hours (9 AM to 10 PM)
+            opening_time = timezone.datetime.strptime("09:00", "%H:%M").time()
+            closing_time = timezone.datetime.strptime("22:00", "%H:%M").time()
+            if not (opening_time <= time <= closing_time):
+                raise ValidationError("Bookings can only be made between 9 AM and 10 PM.")
+        return time
