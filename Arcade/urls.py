@@ -26,5 +26,6 @@ urlpatterns = [
     path('bundles/', include("bundles.urls"), name='bundles-url'),
     path("accounts/", include("allauth.urls")),
     path("booking/", include("booking.urls"), name='booking-url'),
+    path("accounts/", include("accounts.urls", namespace='accounts'), name='accounts-url'),
     
 ]

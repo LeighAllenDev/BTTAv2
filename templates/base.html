@@ -7,6 +7,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'view_account' as accounts_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -57,7 +58,8 @@
             <ul class="nav navbar-nav ms-auto">
               {% if user.is_authenticated %}            
               <li class="nav-item">
-                <span class="navbar-text">Logged in as: {{ user.username }}</span>
+                <span class="navbar-text">Logged in as: </span>
+                <a href="{% url 'accounts:view_account' %}">{{ user.username }}</a>
               </li> 
               <li class="nav-item">
                 <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a>

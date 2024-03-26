@@ -53,11 +53,16 @@ body {
     background: url(/static/images/booking-hero.jpg) no-repeat center center/cover;
 }
 
+#booking {
+    background: url(/static/images/accounts-hero.jpg) no-repeat center center/cover;
+}
+
 .cover-text {
     position: absolute;
     font-size: 100%;
     background-color: #212529;
     margin-top: 15%;
+    margin-left: 100px;
     opacity: 80%;
     padding: 1rem;
 }
