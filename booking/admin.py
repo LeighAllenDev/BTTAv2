@@ -4,7 +4,7 @@ from django.utils.html import format_html_join
 from django.utils.safestring import mark_safe
 
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ('user', 'bundle', 'display_food_items', 'display_drink_items', 'date', 'time')
+    list_display = ('user', 'bundle', 'date', 'time')
     list_filter = ('bundle', 'date', 'user')
     search_fields = ('user__username', 'bundle__name')
 
