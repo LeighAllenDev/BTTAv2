@@ -7,7 +7,7 @@ from django.http import JsonResponse
 def bundles(request):
     # Prefetch related categories to reduce the number of database queries
     bundles = Bundle.objects.prefetch_related('food_categories', 'drink_categories').all()
-    return render(request, "bundles/bundles.html", {'bundles': bundles})
+    return render(request, "bundles.html", {'bundles': bundles})
 
 def bundle_list(request):
     bundles = Bundle.objects.all()

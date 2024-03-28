@@ -5,7 +5,7 @@ from django.http import JsonResponse
 def menu(request):
     # Combined prefetch_related and exclude in a single query
     categories = Category.objects.exclude(name='Default Category').prefetch_related('menuitems__options')
-    return render(request, 'menu/menu.html', {'categories': categories})
+    return render(request, 'menu.html', {'categories': categories})
 
 def menu_items_api(request, category_id=None):
     if category_id:
