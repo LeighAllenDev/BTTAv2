@@ -181,6 +181,10 @@ ul {
     padding-bottom: 2.5rem;
 }
 
+.fa-brands {
+    color: #ffffff;
+}
+
 @media (max-width: 768px) {
     .bg-img-container {
         height: 30vh;
@@ -188,7 +192,11 @@ ul {
     }
 
     .cover-text {
-        right: 5%;
+        padding: 0;
+        margin: auto;
+        font-size: initial;
+        align-items: center;
     }
+
 
 }
