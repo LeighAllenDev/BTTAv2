@@ -20,7 +20,7 @@ def booking_view(request):
             booking.user = request.user
             # Save the booking instance to generate an ID
             booking.save()
-            return redirect('accounts:view_account')
+            return redirect('myaccount:myaccount')
         else:
             pass 
             
