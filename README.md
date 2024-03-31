@@ -25,6 +25,16 @@ The project focuses on a fictional retro arcade based in Brighton that offers cu
     * [Target Audience](#target-audience)
     * [User Stories](#user-stories)
     * [Site Aims](#site-aims)
+    * [Design](#design)
+3. [Features](#features)
+    * [Common Features](#features-common-across-all-sites)
+    * [Front End](#front-end-for-the-user)
+    * [Back End](#back-end-for-the-site-admin)
+4. [Future Enhancements](#future-enhancements)
+5. [Testing](#testing)
+6. [Deployment](#deployment)
+7. [Tech](#tech)
+
 
 
 ## Planning Phase
@@ -93,24 +103,19 @@ For this project I’ve chosen the font (font-name) as it has a retro feel but l
 
 ### Features common across all sites
 
-**Navigation**
+#### Navigation
+
+![Nav bar design](/static/images/readme/nav-log.png)
 
 The site utilizes a fixed universal navigation bar that clearly outlines the sections of the site and is responsive so it transforms into a dropdown list on smaller screens while spanning the top of the page on larger devices. The logo is also across every page so users always know what site they are on. The nav bar indicates which page the user is on every time they click to a new page.
 
+![login status](/static/images/readme/loginstatus.png)
+
 The navbar updates based on a users login status, if the user is not logged in there are two additional links to allow users to either register or login to their account. When a user has logged in, these links will be hidden as their is no need for them to be displayed. The Navbar will also display a message to the user when they are logged in. (insert image here). 
 
-The navigation bar comprises of the following tabs:
 
-- Home
-- Features
-- Menu
-- Bundles
-- Booking
----
-- Register
-- Login
----
-- Log out
+![login or register](/static/images/readme/register.png)
+
 
 **Headers and hero images**
 
@@ -156,6 +161,14 @@ The admin page that is built into **Django** gives site admin users more feature
 
 **Bookings** - Admins are able to view (and approve) users bookings ahead of the booking date, as well as notifying users of cancellations and verified bookings.
 
+## Future Enhancements
+
+This project is an improved version of my first project with *Code Institute*, Having said that there are still some future enhancements I would like to add.
+
+The booking form is a very basic version of what I intended to do. The plan with this form was to allow the user to choose their menu items as part of the booking process, but this involved a dynamic JAvaScript form to calculate the tokens available - the token cost of each item, and tldr, I couldn't get that working as intended so it is being put on the backburner for now.
+
+Another enhancement would be for the user to get an email or notification once their booking slot had been approved or rejected by the Arcade.
+
 ## Testing
 
 
@@ -171,7 +184,8 @@ As this project is built primarily with Django, a Python Framework, it is deploy
 6. From the **Deploy** page, and click on **Settings**
 7. After scrolling down the page a bit, click on **Convig Vars** and select *Reveal Convig Vars.*
 8. In the *Convig Vars* set the **Database url** and the **secret key** for the project, this is crucial for the *running of the database* within the **Heroku** platform
-9. Head back over to the
+9. Head back over to the **Deploy** tab and select **GitHub** as the deployment method
+10. Search for the correct repository and click the **Deploy** button at the bottom of the page.
 
 ## Tech
 
@@ -187,10 +201,9 @@ This project is built with a vast array of tech, different software, languages, 
 
 ### Frameworks
 
-- **Django - A Python Framework that is used for the entire project**
-- **Bootstrap 5 - This is a CSS based framework, used for styling and customizing the web pages.**
-- **AllAuth - A Python framework used to enable secure logins to the sites.**
-- **Rest API**
+- **Django** - A Python Framework that is used for the entire project
+- **Bootstrap 5** - This is a CSS based framework, used for styling and customizing the web pages.
+- **AllAuth** - A Python framework used to enable secure logins to the sites.
 
 ### Software
 

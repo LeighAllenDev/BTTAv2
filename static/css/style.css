@@ -113,7 +113,6 @@ thead {
 }
 
 table {
-    /* width: 100%; */
     padding-bottom: 2rem;
 }
 
@@ -147,11 +146,10 @@ ul {
   
   .dash {
     display: inline-block;
-    width: 20px; /* Adjust the width of each dash */
-    height: 1px; /* Height of the line */
-    margin: 2rem 5px; /* Adjust the spacing between dashes */
-    background: darkorange; /* Color of the dashes */
-    /* margin-bottom: 2rem; */
+    width: 20px;
+    height: 1px; 
+    margin: 2rem 5px; 
+    background: darkorange;
   }
 
 .footer {
