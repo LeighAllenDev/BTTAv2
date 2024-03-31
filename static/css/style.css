@@ -2,9 +2,10 @@
 
 * {
     padding: 0%;
-    /* background: fixed; */
+    margin: 0%;
     box-sizing: border-box;
-    display: flexbox;
+    font-family: 'Exo 2', sans-serif;
+    
 }
 
 
@@ -14,17 +15,13 @@ body {
     min-height: 100vh;
     text-align: center;
     margin-top: 50px;
-    margin-bottom: 100px;
-    font-family: 'Exo 2', sans-serif;
+    margin-bottom: 100px; 
     color: bisque;
     background-color: black;
 }
 
 /* Nav bar */
 
-/* .container-fluid {
-    padding-top: 2rem; 
-} */
 
 .bg-img-container {
     height: 600px;
@@ -58,6 +55,10 @@ body {
 
 #booking {
     background: url(/static/images/accounts-hero.jpg) no-repeat center center/cover;
+}
+
+.signup {
+    background: url(/static/images/sign-up-hero.jpg) no-repeat center center/cover;
 }
 
 .cover-text {
