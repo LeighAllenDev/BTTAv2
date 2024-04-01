@@ -167,7 +167,7 @@ This project is an improved version of my first project with *Code Institute*, H
 
 The booking form is a very basic version of what I intended to do. The plan with this form was to allow the user to choose their menu items as part of the booking process, but this involved a dynamic JAvaScript form to calculate the tokens available - the token cost of each item, and tldr, I couldn't get that working as intended so it is being put on the backburner for now.
 
-Another enhancement would be for the user to get an email or notification once their booking slot had been approved or rejected by the Arcade.
+Another enhancement would be for the user to get an email or notification once their booking slot had been approved or rejected by the Arcade. This wouldn't be too hard to implement as admins already have the ability to approve bookings.
 
 ## Testing
 
