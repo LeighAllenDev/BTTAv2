@@ -1,6 +1,5 @@
 from django.db import models
 
-# Assuming you have this function at the top for creating a default category
 def create_default_category():
     category, _ = Category.objects.get_or_create(name='Default Category')
     return category.pk

@@ -3,7 +3,7 @@ from django import forms
 from .models import Category, MenuItem, MenuItemOption
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
-# Custom form for MenuItem to use SummernoteWidget
+
 class MenuItemForm(forms.ModelForm):
     class Meta:
         model = MenuItem
@@ -12,7 +12,6 @@ class MenuItemForm(forms.ModelForm):
         }
         fields = '__all__'
 
-# Custom form for MenuItemOption to make 'size' optional
 class MenuItemOptionForm(forms.ModelForm):
     class Meta:
         model = MenuItemOption
@@ -22,19 +21,16 @@ class MenuItemOptionForm(forms.ModelForm):
         super(MenuItemOptionForm, self).__init__(*args, **kwargs)
         self.fields['size'].required = False
 
-# Inline admin for MenuItemOption using the custom form
 class MenuItemOptionInline(admin.TabularInline):
     model = MenuItemOption
     form = MenuItemOptionForm
     extra = 1
 
-# Admin for Category
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'token_cost', 'type']
     list_filter = ('type',)
 
-# Admin for MenuItem using the custom form and including MenuItemOptionInline
 @admin.register(MenuItem)
 class MenuItemAdmin(admin.ModelAdmin):
     form = MenuItemForm

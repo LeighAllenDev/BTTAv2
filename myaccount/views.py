@@ -15,7 +15,7 @@ def myaccount(request):
                 form.save()
                 return redirect('myaccount:myaccount')
         elif 'cancel_booking' in request.POST and recent_booking:
-            # Cancel the recent booking
+            
             recent_booking.delete()
             return redirect('myaccount:myaccount')
     else:

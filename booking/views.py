@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import BookingForm
 from django.contrib.auth.decorators import login_required
-from bundles.models import Bundle  # Ensure this import is correct based on your project structure
+from bundles.models import Bundle
 
 @login_required
 def booking_view(request):
@@ -18,7 +18,6 @@ def booking_view(request):
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
-            # Save the booking instance to generate an ID
             booking.save()
             return redirect('myaccount:myaccount')
         else:

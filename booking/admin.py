@@ -15,11 +15,10 @@ class BookingAdmin(admin.ModelAdmin):
         return self.display_items(obj.drink_items.all())
 
     def display_items(self, items):
-        # Display the items as a comma-separated list with token costs if available
         items_list = format_html_join(
             mark_safe('<br>'), 
             "{} ({} tokens)", 
-            ((item.name, item.category.token_cost) for item in items)  # Assumes MenuItem has a name and is related to a Category with token_cost
+            ((item.name, item.category.token_cost) for item in items)
         ) or mark_safe("<span class='errors'>No items selected</span>")
         return items_list
 

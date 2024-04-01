@@ -30,12 +30,12 @@
                 {% if user.is_authenticated %}
         <form method="post" id="booking-form">
             {% csrf_token %}
-            <!-- Bundle Selection -->
+            
             <div class="form-group">
                 {{ form.bundle.label_tag }} {{ form.bundle }}
             </div>
     
-            <!-- Date and Time -->
+            
             <div class="form-group">
                 {{ form.date.label_tag }} {{ form.date }}
                 {{ form.time.label_tag }} {{ form.time }}
