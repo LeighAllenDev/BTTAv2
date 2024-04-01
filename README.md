@@ -93,10 +93,10 @@ The colour scheme for this project resembles that of my original #**BackToTheArc
 
 The specific colors used are:
 
-- Black.. insert colour codes here
-- Orange..
-- White
-- Navbar color
+- Black - rgb(0,0,0)
+- Dark Orange - rgb(255,140,0)
+- White - #ffffff
+- Dark Gray - #212529
 
 For this project I’ve chosen the font (font-name) as it has a retro feel but like the aesthetic of the arcade, It’s the kind of font that gives off nostalgia for the target audience and is eye catching within the project.
 
@@ -180,6 +180,7 @@ There are as few known bugs/issues with my project, these are mostly things that
 **Booking form** - The booking form is meant to let the customer choose a bundle, display the total amount of food/drink tokens available within the bundle and dynamically update to display more food options based on the remaining tokens. There seems to be an issue with my JS code so the form doesn't count down the tokens or give extra fields for food items. So as a fix, I have simplified the booking form to only need the bundle name, time and date.
 
 ## Testing
+![Lighthouse Test](/static/images/readme/Lighthouse.png)
 
 During this project I have done extensive manual testing, and relied heavily chrome developer tools and the built-in Django debugging mode. Stack-overflow has also been invaluable to this project. 
 
@@ -192,8 +193,6 @@ Updates to the database happen when adding items to the menu or the bundles, a u
 I tested the booking form extensively to make sure it would update on the database correctly. This involved filling in the form, submitting it, seeing the error message display, resolving the error message, filling in the form, submitting the form, then checking the admin panel. To start with the food items werent displaying in the admin, and the tokens werent counting, so after removing the food choice options and reconfiguring the models, eventually the bundles were showing up as they should.
 
 The Django built in debug mode shows an error message when something doesn't line up in the code, it also provides the line and area that is throwing an error, then it's just a case of trying to fix the code until the site loads. 
-
-The majority of my testing was to repeat the same processes several times until they worked as expected.
 
 ## Deployment
 
