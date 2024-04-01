@@ -194,15 +194,20 @@ ul {
 
 @media (max-width: 768px) {
     .bg-img-container {
-        height: 30vh;
-        display: inline;
+        height: 30vh; /* Keeps the height responsive */
+        width: 100%; /* Prevents overflow by not exceeding the viewport width */
+        display: block; /* Adjust as needed, consider flex or block depending on layout */
     }
 
     .cover-text {
-        padding: 0;
-        margin: auto;
-        font-size: initial;
-        align-items: center;
+        width: 90%; /* Limits the width to prevent overflow */
+        max-width: 400px; /* Ensures it doesn't get too wide on slightly larger screens */
+        left: 50%; /* Central positioning along with transform */
+        top: 50%; /* Adjusts vertical positioning */
+        transform: translate(-50%, -50%); /* Centers the div perfectly */
+        margin: 0; /* Removes any margin that could cause overflow */
+        padding: 1rem; /* Ensures padding is not too large */
+        font-size: 50%; /* Adjust font size for smaller screens */
     }
 
 

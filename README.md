@@ -3,6 +3,9 @@
 ### Code Institute Portfolio Project 04
 
 ## Site Overview
+
+![Am I Responsive](/static/images/readme/AmIResponsive.png)
+
 This is a revised version of my first project with added features to utilise the skills I have developed since partaking in that project.
 
 While the original **[Back To The Arcade]** site primarily used the **Front-end** and was built solely with **HTML** and **CSS**, this version utilises the **Full-Stack** using the following **languages and frameworks:
@@ -16,8 +19,6 @@ While the original **[Back To The Arcade]** site primarily used the **Front-end*
 The bulk of the project is built with Django which is a Python Framework.
 
 The project focuses on a fictional retro arcade based in Brighton that offers customers a nostalgic experience with classic and modern arcade games as well as a selection of modern consoles, it also has an in house food hall. The aim of the site is to give users an overview of all the available services, users are also able to login to their accounts, and register new accounts, to book their visits in advance. 
-
-*placeholder for responsiveness image *
 
 ## Table of Contents
 1. [Site Overview](#site-overview)
@@ -169,8 +170,30 @@ The booking form is a very basic version of what I intended to do. The plan with
 
 Another enhancement would be for the user to get an email or notification once their booking slot had been approved or rejected by the Arcade. This wouldn't be too hard to implement as admins already have the ability to approve bookings.
 
+## Bugs
+There are as few known bugs/issues with my project, these are mostly things that I'm sure I could fix with more time or research, and a the majority of them are just asthetics.
+
+**The Footer** - The footer element doesn't show as intended, all the styling is there but the icons show as blue rather than white and they are positioned incorrectly. This is not a major problem as all the icons function correctly and link to the proper sites, opening blnak tabs as they should.
+
+**Signup/Login Pages** - these pages dont follow the styling of the rest of the site, and I can't, for the life of me work out why my css for them won't style the properties correctly, this is resulting in the main headers being partially hidden by the nav bar. Again this is mostly a design issue and the page forms work exactly as intended. 
+
+**Booking form** - The booking form is meant to let the customer choose a bundle, display the total amount of food/drink tokens available within the bundle and dynamically update to display more food options based on the remaining tokens. There seems to be an issue with my JS code so the form doesn't count down the tokens or give extra fields for food items. So as a fix, I have simplified the booking form to only need the bundle name, time and date.
+
 ## Testing
 
+During this project I have done extensive manual testing, and relied heavily chrome developer tools and the built-in Django debugging mode. Stack-overflow has also been invaluable to this project. 
+
+Responsiveness for the templates has been tested extensively with Chrome Developer tools, allowing me to see how the project would look on a selection of screen sizes. This also helped me with trying to style the majority of the project.
+
+Testing the database was mainly achieved in the django admin panel as this will show when I've created models. It took 2 databases to make this project as the first one stopped updating when migrating changes. It was also essential that I remembered to make migrations when I made changes to the database.
+
+Updates to the database happen when adding items to the menu or the bundles, a user registering on the site, or a booking form being completed. To test all of these features, I made a number of test users, added a lot of items to the menus and bundles tables, checking the live site after each addition to make sure it updated. 
+
+I tested the booking form extensively to make sure it would update on the database correctly. This involved filling in the form, submitting it, seeing the error message display, resolving the error message, filling in the form, submitting the form, then checking the admin panel. To start with the food items werent displaying in the admin, and the tokens werent counting, so after removing the food choice options and reconfiguring the models, eventually the bundles were showing up as they should.
+
+The Django built in debug mode shows an error message when something doesn't line up in the code, it also provides the line and area that is throwing an error, then it's just a case of trying to fix the code until the site loads. 
+
+The majority of my testing was to repeat the same processes several times until they worked as expected.
 
 ## Deployment
 
@@ -196,8 +219,9 @@ This project is built with a vast array of tech, different software, languages, 
 - **HTML** - Hypertext Markup Language, used for the base code for each of the website pages.
 - **CSS** - Cascading Style Sheets, used to customize aspects of the website
 - **JavaScript** - This language was used for the dynamically updating form
-- **jQuery - Used in conjunction with JavaScript**
+- **jQuer**y - Used in conjunction with JavaScript
 - **Python3** - The base of the project
+- **SQL** - Used for managing the database
 
 ### Frameworks
 
@@ -225,3 +249,18 @@ During the development and testing of this site I was able to use a number of de
 - iPhone 14 Pro
 - iPad Air 4th Gen
 - Moto G62
+
+## Credits
+I would like to give an honorable mention to my mentor, Richard Wells, as hes been a great help to me during this and every project I've done with Code Institute so far.
+
+### Text Content
+The majority of the text content for this site was taken directly from my orginal BackToTheArcade project as this is just a more refined version with additional features.
+
+The font is Exo 2, taken from Google Fonts.
+
+### Media
+Every picture in this project, other than the logo designed by myself, was hosted on Pexels.com, a stock image hosting site. 
+
+The artists are Cottonbro studio, Francesco Ungaro and Mikhail Nilov.
+
+
