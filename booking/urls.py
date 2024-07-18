@@ -1,7 +1,10 @@
 from django.urls import path
-from .views import booking_view
+from . import views
 
+
+app_name = 'booking'
 
 urlpatterns = [
-    path('', booking_view, name='booking'),
+    path('', views.booking_view, name='booking'),
+    path('confirmation/<int:booking_id>/', views.booking_confirmation, name='booking_confirmation'),
 ]

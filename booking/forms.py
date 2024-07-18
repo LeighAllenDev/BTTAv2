@@ -14,6 +14,7 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(BookingForm, self).__init__(*args, **kwargs)
+        self.fields['date'].initial = timezone.localdate()
 
     def clean_date(self):
         date = self.cleaned_data.get('date')

@@ -2,11 +2,12 @@ from django.db import models
 from django.conf import settings
 from bundles.models import Bundle
 from menu.models import MenuItem
+from django.utils import timezone
 
 class Booking(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     bundle = models.ForeignKey(Bundle, on_delete=models.SET_NULL, null=True, blank=True)
-    date = models.DateField()
+    date = models.DateField(default=timezone.now)
     time = models.TimeField()
     approved = models.BooleanField(default=False)
     
