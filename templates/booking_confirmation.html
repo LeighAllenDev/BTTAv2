@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-8">
+            <h2>Booking Confirmation</h2>
+            <p>Thank You for your booking!</p>
+            <p><strong>Bundle:</strong> {{ booking.bundle.name }}</p>
+            <p><strong>Date:</strong> {{ booking.date }}</p>
+            <p><strong>Time:</strong> {{ booking.time }}</p>
+        </div>
+    </div>
+</section>
