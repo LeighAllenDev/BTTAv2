@@ -1,51 +1,38 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-<section class="container-fluid">
-    <div class="row">
-        <div id="booking" class="col-12 bg-img-container">
-            <div class="cover-text">
-                <h2>Your Bookings</h2>
-                <h3>Select a booking to cancel</h3>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="container mt-4">
-    {% if messages %}
-    <div class="alert alert-success" role="alert">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    <div class="row">
-        {% for booking in user_bookings %}
-        <div class="col-md-8 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Booking: <strong>{{ booking.bundle }}</strong></h5>
-                    <p class="card-text">Date: {{ booking.date }}</p>
-                    <p class="card-text">Time: {{ booking.time }}</p>
-                    <form method="post" action="{% url 'myaccount:myaccount' %}" onsubmit="return confirmCancel()">
+<section class="container">
+    <h2>My Account</h2>
+    <h3>My Bookings</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Bundle</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in user_bookings %}
+            <tr>
+                <td>{{ booking.bundle }}</td>
+                <td>{{ booking.date }}</td>
+                <td>{{ booking.time }}</td>
+                <td>
+                    <form method="post" action="{% url 'myaccount:edit_booking' booking.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                    <form method="post" style="display:inline;">
                         {% csrf_token %}
                         <input type="hidden" name="booking_id" value="{{ booking.id }}">
-                        <button type="submit" name="cancel_booking" class="btn btn-danger">Cancel Booking</button>
+                        <button type="submit" name="cancel_booking" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel this booking?');">Cancel</button>
                     </form>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-
-<script>
-function confirmCancel() {
-    return confirm("Are you sure you want to cancel this booking?");
-}
-</script>
-
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
 {% endblock %}
