@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="container">
+    <h2>Edit Booking</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.bundle.label_tag }}
+            {{ form.bundle }}
+        </div>
+        <div class="form-group">
+            {{ form.date.label_tag }}
+            {{ form.date }}
+        </div>
+        <div class="form-group">
+            {{ form.time.label_tag }}
+            {{ form.time }}
+        </div>
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <p>Please correct the following errors:</p>
+            <ul>
+                {% for field in form %}
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="{% url 'myaccount:myaccount' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var existingDate = '{{ booking.date|date:"Y-m-d" }}';
+        var existingTime = '{{ booking.time|date:"H:i" }}';
+        var existingBundleId = '{{ booking.bundle.id_bundle }}';
+
+        console.log('Date:', existingDate);
+        console.log('Time:', existingTime);
+        console.log('Bundle ID:', existingBundleId);
+
+        var dateField = document.getElementById('id_date');
+        var timeField = document.getElementById('id_time');
+        var bundleField = document.getElementById('id_bundle');
+
+        if (dateField) {
+            dateField.value = existingDate;
+        }
+
+        if (timeField) {
+            timeField.value = existingTime;
+        }
+
+        if (bundleField) {
+            var options = bundleField.options;
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].value === existingBundleId) {
+                    options[i].selected = true;
+                    break;
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}
