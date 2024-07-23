@@ -2,6 +2,15 @@
 {% block content %}
 <section class="container">
     <h2>Edit Booking</h2>
+    {% if messages %}
+        <div class="alert-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     <form method="post">
         {% csrf_token %}
         <div class="form-group">

@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
 <section class="container">
     <h2>My Account</h2>
     <h3>My Bookings</h3>
+    {% if messages %}
+        <div class="alert-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     <table class="table">
         <thead>
             <tr>
