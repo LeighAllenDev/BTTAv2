@@ -6,7 +6,6 @@ from django.contrib import messages
 
 @login_required
 def myaccount_view(request):
-    # Retrieve all bookings for the logged-in user
     user_bookings = Booking.objects.filter(user=request.user)
     recent_booking = user_bookings.first() if user_bookings else None
 
@@ -14,7 +13,6 @@ def myaccount_view(request):
         booking_id = request.POST.get('booking_id')
         booking = get_object_or_404(Booking, id=booking_id, user=request.user)
 
-        # Handle booking cancellation
         if 'cancel_booking' in request.POST:
             booking.delete()
             messages.success(request, 'Booking canceled successfully!')
@@ -27,16 +25,15 @@ def myaccount_view(request):
 
 @login_required
 def edit_booking_view(request, booking_id):
-    # Fetch the booking object for the logged-in user
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
-
+    
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
-            form.save()  # Save the updated booking
+            form.save()
             messages.success(request, 'Booking updated successfully!')
             return redirect('myaccount:myaccount')
     else:
         form = BookingForm(instance=booking)
-
+    
     return render(request, 'edit_booking.html', {'form': form, 'booking': booking})
