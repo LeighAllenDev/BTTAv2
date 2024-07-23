@@ -1,6 +1,7 @@
 # Back To The Arcade Again!
 
 ### Code Institute Portfolio Project 04
+Recent changes for the resub of this project viewed in the additions document: [Additions](/Additions.md)
 
 ## Site Overview
 
