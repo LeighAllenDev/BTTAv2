@@ -33,7 +33,7 @@ class BookingForm(forms.ModelForm):
             closing_time = timezone.datetime.strptime("22:00", "%H:%M").time()
             if not (opening_time <= time <= closing_time):
                 raise ValidationError("Bookings can only be made between 9 AM and 10 PM.")
-            time = time.replace(second=0, microsecond=0)  # Strip seconds
+            time = time.replace(second=0, microsecond=0)
         return time
 
     def clean_bundle(self):
