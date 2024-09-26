@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com', '*', '.codeanyapp.com', 'http://127.0.0.1:8000/', '.ws.codeinstitute-ide.net', 'https://8000-leighallendev-bttav2-1xbdfsz8moy.ws.codeinstitute-ide.net']
 
