@@ -36,6 +36,7 @@ The project focuses on a fictional retro arcade based in Brighton that offers cu
 5. [Testing](#testing)
 6. [Deployment](#deployment)
 7. [Tech](#tech)
+8. [Additional Testing](#additional-testing)
 
 
 
@@ -194,6 +195,19 @@ Updates to the database happen when adding items to the menu or the bundles, a u
 I tested the booking form extensively to make sure it would update on the database correctly. This involved filling in the form, submitting it, seeing the error message display, resolving the error message, filling in the form, submitting the form, then checking the admin panel. To start with the food items werent displaying in the admin, and the tokens werent counting, so after removing the food choice options and reconfiguring the models, eventually the bundles were showing up as they should.
 
 The Django built in debug mode shows an error message when something doesn't line up in the code, it also provides the line and area that is throwing an error, then it's just a case of trying to fix the code until the site loads. 
+
+## Additional Testing
+
+After submitting this project and having it marked, it came to my attention that the booking form was producing an Error page when trying to book for a previous date. This was caused by failing to correctly import **ValidationError** from *django.core.exceptions*. importing the modue at the top of the form rectified this issue and the error message could properly be displayed to the user.
+
+This caused a new erorr as the error message said *Bookings cannot be made for today. please book a future date* regardless of whether it was today or a past date.
+
+**Solution**
+I added an elif statement to the clean date function to display seperate messages depending on whether it is today or a previous day. See expamples below:
+
+Previous Day: ![Previous Day image](/static/images/readme/previous-day.png)
+
+Today: ![Today error message](/static/images/readme/today.png)
 
 ## Deployment
 
