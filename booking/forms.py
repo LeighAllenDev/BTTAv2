@@ -2,6 +2,7 @@ from django import forms
 from .models import Booking
 from bundles.models import Bundle
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 class BookingForm(forms.ModelForm):
     class Meta:
@@ -22,8 +23,11 @@ class BookingForm(forms.ModelForm):
         date = self.cleaned_data.get('date')
         if date:
             today = timezone.localdate()
-            if date <= today:
+            if date < today:
+                raise ValidationError("Bookings cannot be made in the past. Please go Back to the Future")
+            if date == today:
                 raise ValidationError("Bookings cannot be made for today. Please select a future date.")
+            
         return date
 
     def clean_time(self):
